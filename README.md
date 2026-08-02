@@ -7,6 +7,23 @@ Enterprise cybersecurity homelab for hands-on networking, virtualization, system
 
 This project documents the design, deployment, and troubleshooting of my enterprise-style homelab. The objective is to gain practical experience with networking, virtualization, routing, firewalls, and system administration using enterprise hardware.
 
+## Learning Roadmap
+
+- [x] Deploy Proxmox
+- [x] Configure Cisco ASA
+- [x] Configure Layer 3 Switch
+- [x] Restore Proxmox management access
+- [ ] Configure NAT/PAT
+- [ ] Deploy Windows Server
+- [ ] Configure Active Directory
+- [ ] Configure DNS
+- [ ] Configure DHCP
+- [ ] Configure VLANs
+- [ ] Deploy Kali Linux
+- [ ] Deploy Security Onion
+- [ ] Build custom Python security tools
+
+
 ## Hardware
 
 * Dell PowerEdge R320
@@ -17,6 +34,36 @@ This project documents the design, deployment, and troubleshooting of my enterpr
 * 2 × 1 TB HDD (RAID 1)
 * Proxmox VE Hypervisor
 
+
+## Current Environment
+
+### Hardware
+- Dell PowerEdge R320
+- Cisco ASA 5505
+- Cisco Layer 3 Switch
+- Bell Giga Hub
+
+### Hypervisor
+- Proxmox VE
+
+### Storage
+- RAID 1
+- 2 × 1 TB HDD
+
+### Status
+✅ Infrastructure Operational
+
+## Technologies
+
+- Proxmox VE
+- Cisco ASA 5505
+- Cisco Switching
+- Linux
+- Windows Server (planned)
+- Active Directory (planned)
+- Security Onion (planned)
+- Kali Linux (planned)
+  
 
 # Initial Network Topology
 '''
@@ -286,6 +333,13 @@ System Administration
 * Server deployment
 * Infrastructure validation
 
+  
+
+Issue: Could not access the Proxmox web interface.
+
+Root cause: Physical network connectivity and management network configuration.
+
+Resolution: Verified link status, corrected IP configuration, validated routing through the Cisco ASA, and confirmed successful access to the Proxmox web interface.
 
 
 # Next Steps
