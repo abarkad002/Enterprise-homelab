@@ -1,5 +1,5 @@
 # enterprise-homelab
-Build a enterprise-homelab 
+Enterprise cybersecurity homelab for hands-on networking, virtualization, system administration, penetration testing, and defensive security
 
 # Enterprise Homelab - Cisco ASA 5505, Dell PowerEdge R320 & Proxmox
 
@@ -17,12 +17,10 @@ This project documents the design, deployment, and troubleshooting of my enterpr
 * 2 × 1 TB HDD (RAID 1)
 * Proxmox VE Hypervisor
 
----
 
 # Initial Network Topology
+'''
 
-```
-               enterprise-homelab/
 │
 ├── README.md
 ├── diagrams/
@@ -50,8 +48,8 @@ This project documents the design, deployment, and troubleshooting of my enterpr
 ├── writeups/
 ├── python-tools/
 └── screenshots/
+'''
 
----
 
 # ASA Default Configuration
 
@@ -73,17 +71,17 @@ Outside Interface
 
 * Obtained IP automatically from Bell modem via DHCP
 
-```
+
 192.168.2.29
-```
+
 
 Inside Interface
 
-```
-192.168.1.1/24
-```
 
----
+192.168.1.1/24
+
+
+
 
 # Proxmox Installation
 
@@ -107,17 +105,15 @@ Storage Configuration
 
 Unable to access the Proxmox Web Interface.
 
-```
-https://<server-ip>:8006
-```
+https://<192.168.2.240>:8006
 
 ### Investigation
 
 Checked interfaces
 
-```
+
 ip addr
-```
+
 
 Result
 
@@ -135,7 +131,7 @@ The RJ45 cable was connected.
 
 Physical interfaces became operational.
 
----
+
 
 ## Issue 2
 
@@ -154,13 +150,12 @@ Discovered:
 
 Desktop PC was not connected behind the firewall.
 
-Original topology prevented management traffic from reaching the Proxmox server.
+The original topology prevented management traffic from reaching the Proxmox server.
 
 ### Resolution
 
 Connected the Desktop PC to the internal network through the Layer 3 switch.
 
----
 
 ## Issue 3
 
@@ -172,17 +167,17 @@ After investigation:
 
 Outside Interface
 
-```
+
 192.168.2.29
-```
+
 
 Received dynamically from Bell Giga Hub.
 
 Inside Interface
 
-```
+
 192.168.1.1
-```
+
 
 Serves as the default gateway for the internal network.
 
@@ -190,7 +185,7 @@ Realization:
 
 Traffic between internal devices should communicate with the ASA Inside Interface, not the Outside Interface.
 
----
+
 
 ## Issue 4
 
@@ -200,9 +195,9 @@ Modified the management IP.
 
 Observed:
 
-```
+
 ip addr show vmbr0
-```
+
 
 Still displayed the old address.
 
@@ -212,7 +207,7 @@ The running configuration had not yet reflected the intended configuration.
 
 After correcting the configuration and applying the changes, the management interface became reachable.
 
----
+
 
 ## Connectivity Verification
 
@@ -220,29 +215,28 @@ Successfully verified:
 
 ✓ PC → ASA
 
-```
+
 ping 192.168.1.1
-```
+
 
 ✓ Proxmox → ASA
 
-```
+
 ping 192.168.1.1
-```
+
 
 ✓ PC → Proxmox
 
-```
+
 ping <Proxmox-IP>
-```
+
 
 ✓ Accessed
 
-```
-https://<Proxmox-IP>:8006
-```
 
----
+https://<192.168.1.10>:8006
+
+
 
 # Lessons Learned
 
@@ -254,7 +248,7 @@ https://<Proxmox-IP>:8006
 * Validate Layer 1 before moving to Layers 2, 3, and 7.
 * Enterprise troubleshooting follows a structured methodology rather than guessing.
 
----
+
 
 # Skills Demonstrated
 
@@ -292,7 +286,7 @@ System Administration
 * Server deployment
 * Infrastructure validation
 
----
+
 
 # Next Steps
 
@@ -306,11 +300,10 @@ System Administration
 * Configure DHCP
 * Deploy Kali Linux
 * Deploy Security Onion
-* Build enterprise security lab.
+* Build enterprise security lab
 * Document firewall policies
 * Implement VPN access
 
----
 
 ## Project Status
 
